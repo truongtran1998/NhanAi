@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="custom_code_layout" inherit_id="website.homepage" active="True" customize_show="True">
+    <section class="s_carousel_wrapper" data-vxml="001" data-snippet="s_carousel" data-name="Carousel" style="">
+        <div class="s_carousel carousel slide s_carousel_default" data-interval="3000" id="myCarousel1693891370970" style="background-image: none;">
+          <ol class="carousel-indicators o_we_no_overlay">
+            <li data-slide-to="0" class="active" data-target="#myCarousel1693891370970"/>
+            <li data-slide-to="1" data-target="#myCarousel1693891370970"/>
+            <li data-slide-to="2" data-target="#myCarousel1693891370970"/>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item pt152 pb152 o_colored_level oe_img_bg o_bg_img_center active" style="background-image: url(&quot;/web/image/website.s_carousel_default_image_1&quot;);" data-name="Slide">
+              <div class="oe_unremovable container">
+                <div class="row content">
+                  <div class="carousel-content col-lg-6 o_colored_level">
+                    <h2>
+                      <font style="font-size: 62px;" class="o_default_snippet_text">Slide Title</font>
+                    </h2>
+                    <p class="lead o_default_snippet_text">Use this snippet to presents your content in a slideshow-like format. Don't write about products or services here, write about solutions.</p>
+                    <p>
+                      <a href="/contactus" class="btn btn-primary mb-2 o_default_snippet_text">Contact us</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item pt96 o_colored_level oe_img_bg o_bg_img_center pb48" style="background-image: url(&quot;/web/image/website.s_carousel_default_image_2&quot;);" data-name="Slide" data-original-title="" title="" aria-describedby="tooltip426004">
+              <div class="container oe_unremovable">
+                <div class="row content" data-original-title="" title="" aria-describedby="tooltip678440">
+                  <div class="carousel-content col-lg-8 offset-lg-2 bg-black-50 text-center pt48 pb40 o_colored_level">
+                    <h2 style="font-size: 62px;" class="o_default_snippet_text">Clever Slogan</h2>
+                    <div class="s_hr pt8 pb24" data-snippet="s_hr" data-name="Separator">
+                      <hr class="w-25 mx-auto" style="border-top-width: 1px; border-top-style: solid;"/>
+                    </div>
+                    <p class="lead o_default_snippet_text">Storytelling is powerful.<br/> It draws readers in and engages them.</p>
+                    <p>
+                      <a href="/" class="btn btn-primary mb-2 o_default_snippet_text">Start your journey</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item pt128 pb128 o_colored_level oe_img_bg o_bg_img_center" style="background-image: url(&quot;/web/image/799-41b8da9b/s_carousel_default_image_3.jpg&quot;);" data-name="Slide" data-original-id="256" data-original-src="/website/static/src/img/snippets_demo/s_carousel_3.jpg" data-mimetype="image/jpeg">
+              <div class="oe_unremovable container">
+                <div class="row content">
+                  <div class="carousel-content col-lg-6 offset-lg-6 o_colored_level">
+                    <h2>
+                      <font style="font-size: 62px; background-color: rgb(255, 255, 255);">Edit this title</font>
+                    </h2>
+                    <h4>
+                      <font style="background-color: rgb(255, 255, 255);" class="o_default_snippet_text">Good writing is simple, but not simplistic.</font>
+                    </h4>
+                    <p>
+                      <br/>
+                    </p>
+                    <p class="o_default_snippet_text">Good copy starts with understanding how your product or service helps your customers. Simple words communicate better than big words and pompous language.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev o_not_editable o_we_no_overlay" data-slide="prev" role="img" aria-label="Previous" title="Previous" href="#myCarousel1693891370970">
+            <span class="carousel-control-prev-icon"/>
+            <span class="sr-only o_default_snippet_text">Previous</span>
+          </a>
+          <a class="carousel-control-next o_not_editable o_we_no_overlay" data-slide="next" role="img" aria-label="Next" title="Next" href="#myCarousel1693891370970">
+            <span class="carousel-control-next-icon"/>
+            <span class="sr-only o_default_snippet_text">Next</span>
+          </a>
+        </div>
+      </section>
+
+  <div class="row d-flex align-items-stretch" data-original-title="" title="" aria-describedby="tooltip402844">
+  <t t-foreach="website_post_ids" t-as="tintuc_post">
+  <div class="swiper-slide" style="width: 224px; margin-right: 10px;">
+    <ul>
+      <li>
+        <img t-att-src="image_data_uri(tintuc_post.image_350)" style="max-height:85pt;max-width:90%" alt="Employee Image"/>
+      </li>
+      <li>
+        <a t-attf-href="/tintuc/#{slug(tintuc_post.tintuc_id)}/#{slug(tintuc_post)}" t-field="tintuc_post.name">
+      </a>
+      </li>
+    </ul>
+  </div>
+  </t>
+  </div>
+  <section class="s_three_columns o_cc o_cc2 pt32 pb32 o_colored_level" data-vcss="001" data-snippet="s_three_columns" data-name="Columns" style="background-image: none;">
+  <div class="row">
+    <t t-foreach="website_post_ids" t-as="tintuc_post">
+    <div class="col-lg-4 p-5">
+      <div class="bg-white border h-100">
+        <div class="card-body p-1 oe_product_image">
+        <span t-field="tintuc_post.image_350"
+            t-options="{'widget': 'image', 'itemprop': 'image'}"
+            class="d-flex h-100 justify-content-center align-items-center"/>
+        </div>
+        <div class="card-body" data-original-title="" title="" aria-describedby="tooltip556405">
+          <h4 data-original-title="" title="" aria-describedby="tooltip67434" style="text-align: center;">
+            <b>
+              <a t-attf-href="/tintuc/#{slug(tintuc_post.tintuc_id)}/#{slug(tintuc_post)}"
+                 t-field="tintuc_post.name"
+                 t-attf-class="d-block text-reset text-decoration-none o_tintuc_post_title my-0 h2" t-att-style="'color: #236366!important;font-weight: bold;'">
+                 Untitled Post
+             </a>
+            </b>
+          </h4>
+        </div>
+      </div>
+    </div>
+    </t>
+  </div>
+  </section>
+   <section class="s_three_columns o_cc o_cc2 pt32 pb32 o_colored_level" data-vcss="001" data-snippet="s_three_columns" data-name="Columns" style="background-image: none;">
+  <div class="row">
+    <t t-foreach="website_post_ids" t-as="tintuc_post">
+    <div class="col-lg-4 p-5">
+      <div class="bg-white border h-100">
+        <div class="card-body p-1 oe_product_image">
+        <span t-field="tintuc_post.image_350"
+            t-options="{'widget': 'image', 'itemprop': 'image'}"
+            class="d-flex h-100 justify-content-center align-items-center"/>
+        </div>
+        <div class="card-body" data-original-title="" title="" aria-describedby="tooltip556405">
+          <h5 data-original-title="" title="" aria-describedby="tooltip67434" style="text-align: center;">
+            <b>
+              <a t-attf-href="/tintuc/#{slug(tintuc_post.tintuc_id)}/#{slug(tintuc_post)}"
+                 t-field="tintuc_post.name"
+                 t-attf-class="d-block text-reset text-decoration-none o_tintuc_post_title my-0 h2" t-att-style="'color: #236366!important;font-weight: bold;'">
+                 Untitled Post
+             </a>
+            </b>
+          </h5>
+        </div>
+      </div>
+    </div>
+    </t>
+  </div>
+  </section>
+</template>
+</odoo>
