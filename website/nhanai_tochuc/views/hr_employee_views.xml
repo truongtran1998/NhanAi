@@ -18,7 +18,7 @@
                             <!-- Displayed fields -->
                             <field name="name"/>
                             <field name="year"/>
-                            <field name="employee_id"/>
+                            <field name="employee_id" invisible="1"/>
                         </tree>
 <!--                        <form>-->
 <!--                            <sheet>-->

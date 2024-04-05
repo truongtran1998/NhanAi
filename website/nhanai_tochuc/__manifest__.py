@@ -12,6 +12,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/hr_employee_views.xml',
+        'views/hr_views.xml',
     ],
     'installable': True,
     'auto_install': False,
