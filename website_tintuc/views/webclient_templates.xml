@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="website_tintuc.brand_promotion" inherit_id="web.brand_promotion" name="Brand Promotion">
+        <xpath expr="//div[@class='o_brand_promotion']" position="replace">
+        </xpath>
+    </template>
+
+</odoo>

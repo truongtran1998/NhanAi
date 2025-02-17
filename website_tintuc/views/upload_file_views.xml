@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_user_upload_file_form" model="ir.ui.view">
+        <field name="name">user.upload.file.form</field>
+        <field name="model">user.upload.file</field>
+        <field name="arch" type="xml">
+            <form string="Upload File">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="file"/>
+                        <field name="mimetype" invisible="1"/>
+                        <button name="action_upload_file" type="object" string="Upload" class="oe_highlight"/>
+                    </group>
+                    <group>
+                        <field name="public_url" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_user_upload_file_tree" model="ir.ui.view">
+        <field name="name">user.upload.file.tree</field>
+        <field name="model">user.upload.file</field>
+        <field name="arch" type="xml">
+            <tree string="Uploaded Files">
+                <field name="name"/>
+                <field name="public_url"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_user_upload_file" model="ir.actions.act_window">
+            <field name="name">Upload file</field>
+            <field name="res_model">user.upload.file</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    <menuitem id="menu_user_upload_root" name="File Upload" parent="website.menu_website_global_configuration" sequence="1000"/>
+    <menuitem id="menu_user_upload_file" name="Upload Files" parent="menu_user_upload_root" action="action_user_upload_file"/>
+</odoo>

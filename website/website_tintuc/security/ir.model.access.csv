@@ -1,9 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-tintuc_tintuc_all,tintuc.tintuc,model_tintuc_tintuc,,1,0,0,0
-tintuc_tintuc,tintuc.tintuc,model_tintuc_tintuc,website.group_website_designer,1,1,1,1
-tintuc_post_all,tintuc.post,model_tintuc_post,,1,0,0,0
-tintuc_post,tintuc.post,model_tintuc_post,website.group_website_designer,1,1,1,1
-tintuc_tag,tintuc.tag,model_tintuc_tag,,1,0,0,0
-tintuc_tag_edition,tintuc.tag,model_tintuc_tag,website.group_website_designer,1,1,1,1
-tintuc_tag_category_all,tintuc.tag.category,model_tintuc_tag_category,,1,0,0,0
-tintuc_tag_category,tintuc.tag.category,model_tintuc_tag_category,website.group_website_designer,1,1,1,1
