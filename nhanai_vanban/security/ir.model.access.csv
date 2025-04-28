@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+nhanai_vanban.access_project_report_excel,access_project_report_excel,nhanai_vanban.model_project_report_excel,base.group_user,1,1,1,1,
+nhanai_vanban.access_save_ex_report_wizard,access_save.ex.report.wizard,nhanai_vanban.model_save_ex_report_wizard,base.group_user,1,1,1,1,
+nhanai_vanban.access_project_task,project.task,nhanai_vanban.model_project_task,nhanai_vanban.group_own_task,1,1,0,0

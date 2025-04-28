@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="project_report_excel_wizard_view" model="ir.ui.view">
+        <field name="name">project report excel wizard view</field>
+        <field name="model">project.report.excel</field>
+        <field name="arch" type="xml">
+            <form string="Xuất báo cáo excel">
+                        <group>
+                            <group>
+                                <field name="start_date"/>
+                            </group>
+                            <group>
+                                <field name="end_date"/>
+                            </group>
+                        </group>
+                            <group>
+                                <group>
+                                    <field name="project_id"/>
+                                </group>
+                            </group>
+
+
+                <footer>
+<!--                    <button name="generate_pdf_report" string="Generate PDF" type="object" class="btn-primary"/>-->
+                    <button name="generate_excel_report" string="Xuất excel" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_project_report_excel" model="ir.actions.act_window">
+            <field name="name">Project Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.report.excel</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+
+    </record>
+    <menuitem id="menu_project_report_excel"
+            name="Report Excel"
+            action="nhanai_vanban.action_project_report_excel"
+            parent="project.menu_project_report"
+            sequence="100"/>
+
+</odoo>

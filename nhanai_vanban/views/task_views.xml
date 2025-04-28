@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_task_tree2_custom" model="ir.ui.view">
+        <field name="name">project.task.tree</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="replace">
+                <field name="name" widget="name_with_subtask_count" string="Tên văn bản"/>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="replace">
+                <field name="company_id" groups="base.group_multi_company" optional="show" string="Đơn vị"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="is_reminder_created" invisible="1"/>
+                <field name="ky_hieu_cong_van" optional="show" readonly="1"/>
+                <field name="co_quan_ban_hanh" optional="hide" readonly="1"/>
+                <field name="ngay_van_ban" optional="show" readonly="1"/>
+                <field name="nguoi_ky" optional="hide" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_task_form_custom" model="ir.ui.view">
+        <field name="name">project.task</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_assign_to_me']" position="after">
+                <field name="so_luong_xem" widget="statinfo" string="Số lượt xem"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="replace">
+                <field name="partner_id" widget="res_partner_many2one" class="o_task_customer_field" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='recurring_task']" position="replace">
+                <field name="recurring_task" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="department_id" attrs="{'invisible': ['|',('khoa_phong_text', '=', True),('loai_van_ban', '!=', 'den')]}"/>
+                <field name="department_ids" attrs="{'invisible': ['|',('khoa_phong_text', '=', True), ('loai_van_ban', '!=', 'den')]}" widget="many2many_tags" options="{'no_edit': True, 'no_create': True}">
+                    <tree>
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </xpath>
+            <xpath expr="//field[@name='project_id']" position="replace">
+                <field name="project_id" invisible="1" placeholder="Private" class="o_project_task_project_field oe_edit_only"/>
+            </xpath>
+            <xpath expr="//field[@name='display_project_id']" position="replace">
+                <field name="display_project_id" string="Project" domain="[('active', '=', True), ('company_id', '=', company_id)]" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="replace">
+                <field name="parent_id"
+                                attrs="{'invisible' : [('loai_van_ban', '==', 'den')]}"
+                            options="{'no_create': True, 'no_open': True}"/>
+            </xpath>
+             <xpath expr="//notebook" position="before">
+                <group>
+                    <group>
+                        <field name="is_reminder_created" invisible="1"/>
+                        <field name="loai_van_ban" invisible="1"/>
+                        <field name="so_den" attrs="{'invisible': [('loai_van_ban', '!=', 'den')]}"/>
+                        <field name="ky_hieu_cong_van"/>
+                        <field name="co_quan_ban_hanh" attrs="{'invisible': [('loai_van_ban', '!=', 'den')]}"/>
+                        <field name="ngay_cong_van_den" attrs="{'invisible': [('loai_van_ban', '!=', 'den')]}"/>
+                        <field name="ngay_van_ban"/>
+                    </group>
+                    <group>
+                        <field name="phan_loai_van_ban" attrs="{'invisible': [('loai_van_ban', '!=', 'den')]}"/>
+                        <field name="khoa_phong_text" attrs="{'invisible': [('loai_van_ban', '!=', 'den')]}"/>
+                        <field name="department_text" attrs="{'invisible': ['|',('khoa_phong_text', '=', False), ('loai_van_ban', '!=', 'den')]}"/>
+                        <field name="department_texts" attrs="{'invisible': ['|',('khoa_phong_text', '=', False), ('loai_van_ban', '!=', 'den')]}"/>
+                        <field name="nguoi_ky" attrs="{'invisible': [('loai_van_ban', '==', 'den')]}"/>
+                        <field name="don_vi_soan_thao" attrs="{'invisible': [('loai_van_ban', 'not in', ('quyetdinh', 'noibo'))]}"/>
+                        <field name="noi_nhan" attrs="{'invisible': [('loai_van_ban', 'not in', ('di', 'noibo'))]}"/>
+                        <field name="noi_luu_tru" attrs="{'invisible': [('loai_van_ban', '==', 'den')]}"/>
+                        <field name="so_luong" attrs="{'invisible': [('loai_van_ban', '!=', 'di')]}"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
